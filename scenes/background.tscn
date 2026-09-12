@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://df8vcpf78rtrk"]
+
+[ext_resource type="Texture2D" uid="uid://diutbdg3wayiu" path="res://assets/sprites/background-day.png" id="1_bkp1e"]
+
+[node name="background" type="Parallax2D" unique_id=483953143]
+repeat_size = Vector2(288, 0)
+autoscroll = Vector2(-100, 0)
+repeat_times = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2077555800]
+texture = ExtResource("1_bkp1e")

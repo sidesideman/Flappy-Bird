@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://b8hnlhaauf74e"]
+
+[ext_resource type="Script" uid="uid://dapeoka0n2fyo" path="res://scripts/flappy_bird.gd" id="1_inwqo"]
+[ext_resource type="Texture2D" uid="uid://bs5sbb6hfbg2v" path="res://assets/sprites/yellowbird-upflap.png" id="1_m3bpb"]
+[ext_resource type="Texture2D" uid="uid://b2xu21q4jhdup" path="res://assets/sprites/yellowbird-midflap.png" id="2_inwqo"]
+[ext_resource type="Texture2D" uid="uid://hw2u6h6tya1l" path="res://assets/sprites/yellowbird-downflap.png" id="3_ccgm5"]
+[ext_resource type="AudioStream" uid="uid://dv67ndml6vr80" path="res://assets/audio/wing.wav" id="5_ccgm5"]
+[ext_resource type="AudioStream" uid="uid://ctn3ph0u0dfoa" path="res://assets/audio/hit.wav" id="6_p5ecu"]
+[ext_resource type="AudioStream" uid="uid://d3fjayxu57ahf" path="res://assets/audio/die.wav" id="7_vdnm1"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ff4wm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m3bpb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_inwqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ccgm5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_inwqo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_m3bpb")
+}],
+"loop": 0,
+"name": &"flap",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_m3bpb")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5geqx"]
+radius = 12.0
+
+[node name="flappyBird" type="CharacterBody2D" unique_id=1019732622]
+collision_mask = 2
+script = ExtResource("1_inwqo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1026330283]
+sprite_frames = SubResource("SpriteFrames_ff4wm")
+animation = &"flap"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1395440544]
+shape = SubResource("CircleShape2D_5geqx")
+
+[node name="flapAudio" type="AudioStreamPlayer" parent="." unique_id=1509486618]
+stream = ExtResource("5_ccgm5")
+bus = &"SFX"
+
+[node name="hitAudio" type="AudioStreamPlayer" parent="." unique_id=938281027]
+stream = ExtResource("6_p5ecu")
+bus = &"SFX"
+
+[node name="dieAudio" type="AudioStreamPlayer" parent="." unique_id=674737145]
+stream = ExtResource("7_vdnm1")
+bus = &"Die"
+
+[node name="dieAudioTimer" type="Timer" parent="dieAudio" unique_id=1106418178]
+one_shot = true
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="finished" from="dieAudio" to="." method="_on_die_audio_finished"]
+[connection signal="timeout" from="dieAudio/dieAudioTimer" to="." method="_on_die_sound_timer_timeout"]

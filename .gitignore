@@ -1,0 +1,22 @@
+# Godot 4+ specific ignores
+.godot/
+/android/
+
+# Godot 3+
+.import/
+
+# 匯出檔
+export.cfg
+*.exe
+*.apk
+*.aab
+*.pck
+*.zip
+
+# 作業系統
+.DS_Store
+Thumbs.db
+
+# 編輯器
+.vscode/
+.idea/

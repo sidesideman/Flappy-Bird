@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dpt3ro43mb05c"]
+
+[ext_resource type="Texture2D" uid="uid://ba8d0xpep6ehh" path="res://assets/sprites/pipe-green.png" id="1_8x3ej"]
+[ext_resource type="Script" uid="uid://dajrb7yfx8g4o" path="res://scripts/pipe.gd" id="1_arpqm"]
+[ext_resource type="PackedScene" uid="uid://blnsgobrcqfl0" path="res://scenes/kill_zone.tscn" id="3_8p0di"]
+[ext_resource type="AudioStream" uid="uid://4qc5ui07y1hf" path="res://assets/audio/point.wav" id="4_ejsh2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5geqx"]
+size = Vector2(46, 509)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ff4wm"]
+size = Vector2(46, 509)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_btj3m"]
+size = Vector2(20, 128)
+
+[node name="pipe" type="Node2D" unique_id=916036229]
+script = ExtResource("1_arpqm")
+
+[node name="pipeUpper" type="Node2D" parent="." unique_id=1575801979]
+
+[node name="Sprite2D" type="Sprite2D" parent="pipeUpper" unique_id=2048182658]
+position = Vector2(0, -320)
+rotation = -3.1415925
+texture = ExtResource("1_8x3ej")
+region_enabled = true
+region_rect = Rect2(0, 0, 52, 512)
+
+[node name="killZone" parent="pipeUpper" unique_id=1388094931 instance=ExtResource("3_8p0di")]
+position = Vector2(0, -320)
+rotation = -3.1415925
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pipeUpper/killZone" unique_id=2038470587]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_5geqx")
+
+[node name="pipeBottom" type="Node2D" parent="." unique_id=1035078471]
+
+[node name="Sprite2D" type="Sprite2D" parent="pipeBottom" unique_id=762438448]
+position = Vector2(0, 320)
+texture = ExtResource("1_8x3ej")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(0, 0, 52, 512)
+
+[node name="killZone" parent="pipeBottom" unique_id=1644587635 instance=ExtResource("3_8p0di")]
+position = Vector2(0, 320)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pipeBottom/killZone" unique_id=806992366]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_ff4wm")
+
+[node name="scoreArea" type="Area2D" parent="." unique_id=1394778027]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="scoreArea" unique_id=1542321437]
+shape = SubResource("RectangleShape2D_btj3m")
+
+[node name="pointAudio" type="AudioStreamPlayer" parent="scoreArea" unique_id=807403871]
+stream = ExtResource("4_ejsh2")
+bus = &"SFX"
+
+[connection signal="body_entered" from="scoreArea" to="." method="_on_score_area_body_entered"]

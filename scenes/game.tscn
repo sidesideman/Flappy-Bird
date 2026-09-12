@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cvhuuet43ucjk"]
+
+[ext_resource type="Script" uid="uid://h86rfwapdg2y" path="res://scripts/game.gd" id="1_p57ef"]
+[ext_resource type="PackedScene" uid="uid://b8hnlhaauf74e" path="res://scenes/flappy_bird.tscn" id="2_yqjtg"]
+[ext_resource type="Script" uid="uid://c3drq6ul7q53b" path="res://scripts/pipe_spawner.gd" id="3_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://dpt3ro43mb05c" path="res://scenes/pipe.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://blnsgobrcqfl0" path="res://scenes/kill_zone.tscn" id="6_p57ef"]
+[ext_resource type="PackedScene" uid="uid://dv3ffpwwe7npk" path="res://scenes/score_display.tscn" id="7_u5sy4"]
+
+[sub_resource type="GDScript" id="GDScript_0tnpc"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_5geqx"]
+
+[node name="Game" type="Node2D" unique_id=924951529]
+script = ExtResource("1_p57ef")
+
+[node name="gameManager" type="Node2D" parent="." unique_id=308128162]
+script = SubResource("GDScript_0tnpc")
+
+[node name="pipeSpawner" type="Node2D" parent="gameManager" unique_id=524431357]
+script = ExtResource("3_lbhrr")
+pipe_scene = ExtResource("3_lnu2h")
+
+[node name="pipeSpawnTimer" type="Timer" parent="gameManager/pipeSpawner" unique_id=417034675]
+wait_time = 2.0
+
+[node name="gameOverTimer" type="Timer" parent="gameManager" unique_id=2120679878]
+wait_time = 3.5
+
+[node name="flappyBird" parent="." unique_id=1019732622 instance=ExtResource("2_yqjtg")]
+
+[node name="worldBoundaries" parent="." unique_id=1388094931 instance=ExtResource("6_p57ef")]
+
+[node name="upperBoundary" type="CollisionShape2D" parent="worldBoundaries" unique_id=17003661]
+position = Vector2(0, -255)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_5geqx")
+
+[node name="BottomBoundary" type="CollisionShape2D" parent="worldBoundaries" unique_id=1590239600]
+position = Vector2(0, 255)
+shape = SubResource("WorldBoundaryShape2D_5geqx")
+
+[node name="worldBorder" type="StaticBody2D" parent="." unique_id=2144541001]
+collision_layer = 2
+
+[node name="upperBorder" type="CollisionShape2D" parent="worldBorder" unique_id=1911669170]
+position = Vector2(0, -256)
+rotation = 3.1415927
+shape = SubResource("WorldBoundaryShape2D_5geqx")
+
+[node name="bottomBorder" type="CollisionShape2D" parent="worldBorder" unique_id=712639519]
+position = Vector2(0, 256)
+shape = SubResource("WorldBoundaryShape2D_5geqx")
+
+[node name="scoreMarginContainer" type="MarginContainer" parent="." unique_id=1166299658]
+custom_minimum_size = Vector2(288, 512)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_top = 10
+
+[node name="scoreDisplay" parent="scoreMarginContainer" unique_id=800258260 instance=ExtResource("7_u5sy4")]
+custom_minimum_size = Vector2(36, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[connection signal="timeout" from="gameManager/pipeSpawner/pipeSpawnTimer" to="gameManager/pipeSpawner" method="_on_pipe_spawn_timer_timeout"]
+[connection signal="timeout" from="gameManager/gameOverTimer" to="." method="_on_game_over_timer_timeout"]

@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://c615igj35ft6u"]
+
+[ext_resource type="Script" uid="uid://d0penky17rbbf" path="res://scripts/game_over.gd" id="1_wqhvx"]
+[ext_resource type="Texture2D" uid="uid://d4ap464i6s2xe" path="res://assets/sprites/gameover.png" id="1_xeevv"]
+
+[node name="GameOver" type="Control" unique_id=312300548]
+custom_minimum_size = Vector2(288, 512)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqhvx")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=519680282]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 150
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 300
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=49225509]
+layout_mode = 2
+texture = ExtResource("1_xeevv")
+expand_mode = 2
+
+[node name="restartButton" type="Button" parent="." unique_id=1724487195]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[connection signal="pressed" from="restartButton" to="." method="_on_restart_button_pressed"]

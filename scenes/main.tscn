@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cm82eccny1j7d"]
+
+[ext_resource type="Script" uid="uid://csxe02t87x5qs" path="res://scripts/main.gd" id="1_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://df8vcpf78rtrk" path="res://scenes/background.tscn" id="1_sugp2"]
+[ext_resource type="Script" uid="uid://nu1mh8iryc5f" path="res://scripts/background.gd" id="3_sugp2"]
+
+[node name="Main" type="Node2D" unique_id=793316540]
+script = ExtResource("1_jyhfs")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=944436328]
+position = Vector2(2, 2)
+offset = Vector2(0, -2)
+
+[node name="background" parent="." unique_id=483953143 instance=ExtResource("1_sugp2")]
+script = ExtResource("3_sugp2")
+
+[node name="Content" type="Node2D" parent="." unique_id=1725392178]

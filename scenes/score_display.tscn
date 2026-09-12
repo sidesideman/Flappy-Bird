@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dv3ffpwwe7npk"]
+
+[ext_resource type="Script" uid="uid://csvxx65mb0cav" path="res://scripts/score_display.gd" id="1_f6k70"]
+[ext_resource type="Texture2D" uid="uid://s6p2rtbaq3yk" path="res://assets/sprites/0.png" id="2_gov5v"]
+[ext_resource type="Texture2D" uid="uid://c755o0c02ubn8" path="res://assets/sprites/1.png" id="3_5ltnd"]
+[ext_resource type="Texture2D" uid="uid://b8o8684pqfj6q" path="res://assets/sprites/2.png" id="4_880om"]
+[ext_resource type="Texture2D" uid="uid://dssldheiaha7y" path="res://assets/sprites/3.png" id="5_3x1ts"]
+[ext_resource type="Texture2D" uid="uid://bjh6cbmemjhbf" path="res://assets/sprites/4.png" id="6_is1g3"]
+[ext_resource type="Texture2D" uid="uid://730h86g8vgll" path="res://assets/sprites/5.png" id="7_fdt6d"]
+[ext_resource type="Texture2D" uid="uid://cfs4x7ngs44sh" path="res://assets/sprites/6.png" id="8_gn8e2"]
+[ext_resource type="Texture2D" uid="uid://0xn2eow51egv" path="res://assets/sprites/7.png" id="9_rhp3e"]
+[ext_resource type="Texture2D" uid="uid://nicso8r0lpil" path="res://assets/sprites/8.png" id="10_uqsmr"]
+[ext_resource type="Texture2D" uid="uid://dxptoce7nvt8q" path="res://assets/sprites/9.png" id="11_0ohb4"]
+
+[node name="scoreDisplay" type="HBoxContainer" unique_id=800258260]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_f6k70")
+digit_textures = Array[Texture2D]([ExtResource("2_gov5v"), ExtResource("3_5ltnd"), ExtResource("4_880om"), ExtResource("5_3x1ts"), ExtResource("6_is1g3"), ExtResource("7_fdt6d"), ExtResource("8_gn8e2"), ExtResource("9_rhp3e"), ExtResource("10_uqsmr"), ExtResource("11_0ohb4")])

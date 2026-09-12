@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://ddarfhdbkx5bl"]
+
+[ext_resource type="Script" uid="uid://4ixqle1utd0j" path="res://scripts/start_menu.gd" id="1_thu50"]
+[ext_resource type="Texture2D" uid="uid://b4vhxgj02oc83" path="res://assets/FlappyBird/sprites/message.png" id="2_m7x51"]
+[ext_resource type="Texture2D" uid="uid://bpkq22ufig5df" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Spritesheets/Spritesheet_UI_Flat.png" id="3_m7x51"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5geqx"]
+texture = ExtResource("3_m7x51")
+region_rect = Rect2(416, 64, 32, 32)
+
+[node name="StartMenu" type="Control" unique_id=1606777208]
+custom_minimum_size = Vector2(288, 512)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_thu50")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1448730359]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 40
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer" unique_id=1626182992]
+layout_mode = 2
+texture = ExtResource("2_m7x51")
+stretch_mode = 5
+
+[node name="startButton" type="Button" parent="." unique_id=267486669]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1612062791]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -70.0
+offset_top = -70.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="settingsButton" type="Button" parent="MarginContainer2" unique_id=1832929339]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_5geqx")
+
+[connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/settingsButton" to="." method="_on_settings_button_pressed"]
