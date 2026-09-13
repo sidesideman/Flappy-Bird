@@ -6,7 +6,7 @@ extends Control
 @onready var master_slider: HSlider = %masterSlider
 @onready var music_slider: HSlider = %musicSlider
 @onready var sfx_slider: HSlider = %sfxSlider
-@onready var close_button: Button = %closeButton
+@onready var setting_exit_button: Button = %settingExitButton
 
 
 
@@ -23,6 +23,10 @@ func _ready() -> void:
 	_setup_window_mode_options()
 	_load_current_settings()
 	_connect_signals()
+	
+	setting_exit_button.pivot_offset = setting_exit_button.size / 2.0
+	setting_exit_button.mouse_entered.connect(func(): _scale_to(Vector2(1.25, 1.25)))
+	setting_exit_button.mouse_exited.connect(func(): _scale_to(Vector2.ONE))
 	
 func _setup_resolution_options() -> void:
 	resolution_option.clear()
@@ -108,4 +112,18 @@ func _on_sfx_changed(value: float) -> void:
 
 
 func _on_setting_exit_button_pressed() -> void:
-	get_node("/root/Main").goto_scene("res://scenes/start_menu.tscn")
+	SceneManager.change_scene("res://scenes/start_menu.tscn", "right")
+	GameEvents.button_clicked.emit()
+
+
+
+func _scale_to(target: Vector2) -> void:
+	TweenManager.tween_property(
+		"btn_scale_%s" % setting_exit_button.get_instance_id(),
+		setting_exit_button,
+		"scale",
+		target,
+		0.15,
+		Tween.TRANS_BACK,
+		Tween.EASE_OUT
+	)

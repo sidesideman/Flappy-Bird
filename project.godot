@@ -24,12 +24,14 @@ buses/default_bus_layout="uid://ck2ioo0jq2ube"
 GameEvents="*uid://bcgsvwg4vo2ex"
 SceneManager="*uid://dipfc5kr6pbgr"
 SettingsManager="*uid://dmgnmewg7makl"
+TweenManager="*uid://curp47thsqlya"
+Bgm="*uid://bcnx3kmpxvqdu"
 
 [display]
 
 window/size/viewport_width=288
 window/size/viewport_height=512
-window/size/mode=2
+window/size/mode=1
 window/stretch/mode="viewport"
 
 [input]

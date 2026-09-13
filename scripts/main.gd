@@ -1,10 +1,11 @@
 extends Node2D
 
-@onready var content: Node = $Content
+@onready var content: Node2D = $Content
 var current_scene: Node = null
 
 func _ready() -> void:
-	goto_scene("res://scenes/start_menu.tscn")
+	SceneManager.set_container(content)
+	SceneManager.change_scene("res://scenes/start_menu.tscn", "up")
 
 func goto_scene(path: String) -> void:
 	if current_scene:

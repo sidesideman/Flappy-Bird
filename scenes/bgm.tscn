@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bcnx3kmpxvqdu"]
+
+[ext_resource type="AudioStream" uid="uid://lipg2ky1cjau" path="res://assets/BGM/03. Main Theme.mp3" id="1_q5y64"]
+[ext_resource type="Script" uid="uid://dkpyyhpka20jc" path="res://scripts/bgm.gd" id="1_u4ddl"]
+[ext_resource type="AudioStream" uid="uid://bckovb82a2unp" path="res://assets/FlappyBird/audio/swoosh.wav" id="3_48mr8"]
+
+[node name="BGM" type="Node2D" unique_id=164812133]
+script = ExtResource("1_u4ddl")
+
+[node name="backgroundMusic" type="AudioStreamPlayer" parent="." unique_id=1535021981]
+stream = ExtResource("1_q5y64")
+autoplay = true
+bus = &"Music"
+parameters/looping = true
+
+[node name="SwooshAudio" type="AudioStreamPlayer" parent="." unique_id=1825654142]
+stream = ExtResource("3_48mr8")
+bus = &"SFX"

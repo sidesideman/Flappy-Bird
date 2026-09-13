@@ -5,7 +5,38 @@
 [ext_resource type="Texture2D" uid="uid://j4mx3s8jj0ax" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ButtonCross01a.png" id="2_pgfik"]
 [ext_resource type="Texture2D" uid="uid://cmp2px50xcn6e" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ButtonCross01c.png" id="3_m1jd0"]
 [ext_resource type="Texture2D" uid="uid://cd2aoqpe3f6vw" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_ButtonCross01b.png" id="3_vproo"]
+[ext_resource type="Texture2D" uid="uid://bxe03jp48r3cg" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_Bar06a.png" id="4_pue5k"]
+[ext_resource type="Texture2D" uid="uid://v0uf57yfsfn4" path="res://assets/Complete_UI_Essential_Pack_Free/01_Flat_Theme/Sprites/UI_Flat_IconDropdown01a.png" id="5_5hlwa"]
 [ext_resource type="FontFile" uid="uid://cv0e11osmfbmo" path="res://assets/fonts/upheavtt.ttf" id="6_hf6o2"]
+[ext_resource type="Texture2D" uid="uid://da68geftutyv2" path="res://assets/Sprout Lands - UI Pack - Basic pack/Sprite sheets/check1.png" id="6_k1k3g"]
+[ext_resource type="Texture2D" uid="uid://c0rts03ms2y7o" path="res://assets/Sprout Lands - UI Pack - Basic pack/Sprite sheets/check2.png" id="7_s5qi0"]
+[ext_resource type="Texture2D" uid="uid://dkwwk5md3k3t4" path="res://assets/Sprout Lands - UI Pack - Basic pack/Sprite sheets/slider_icon1.png" id="8_k1k3g"]
+[ext_resource type="Texture2D" uid="uid://b2sjyy1mixuur" path="res://assets/Sprout Lands - UI Pack - Basic pack/Sprite sheets/slider_icon2.png" id="9_gh8fl"]
+[ext_resource type="Texture2D" uid="uid://dfscy3gvqqgrs" path="res://assets/Sprout Lands - UI Pack - Basic pack/Sprite sheets/UI Settings Buttons.png" id="9_s5qi0"]
+[ext_resource type="Texture2D" uid="uid://ctg0x5phu3qrl" path="res://assets/Sprout Lands - UI Pack - Basic pack/Sprite sheets/slider.png" id="10_k1k3g"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5hlwa"]
+texture = ExtResource("4_pue5k")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s5qi0"]
+content_margin_top = 7.0
+texture = ExtResource("10_k1k3g")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mer1h"]
+texture = ExtResource("9_s5qi0")
+texture_margin_left = 5.0
+texture_margin_top = 5.0
+texture_margin_right = 5.0
+texture_margin_bottom = 5.0
+region_rect = Rect2(34, 121, 28, 14)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5geqx"]
 texture = ExtResource("2_pgfik")
@@ -36,16 +67,12 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer" unique_id=531587095]
-custom_minimum_size = Vector2(260, 300)
+custom_minimum_size = Vector2(260, 350)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 texture = ExtResource("1_ogw40")
-region_rect = Rect2(225, 33, 94, 61.996513)
-patch_margin_left = 3
-patch_margin_top = 3
-patch_margin_right = 3
-patch_margin_bottom = 3
+region_rect = Rect2(225, 33, 94, 62)
 
 [node name="buttonsMarginContainer" type="MarginContainer" parent="MarginContainer/NinePatchRect" unique_id=1865461729]
 layout_mode = 1
@@ -76,15 +103,39 @@ text = "Settings"
 [node name="resolutionOption" type="OptionButton" parent="MarginContainer/NinePatchRect/buttonsMarginContainer/buttonsVBoxContainer" unique_id=2117053438]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_hf6o2")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("StyleBoxTexture_5hlwa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5hlwa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5hlwa")
+theme_override_icons/arrow = ExtResource("5_5hlwa")
 
 [node name="windowModeOption" type="OptionButton" parent="MarginContainer/NinePatchRect/buttonsMarginContainer/buttonsVBoxContainer" unique_id=705539418]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_hf6o2")
+theme_override_styles/normal = SubResource("StyleBoxTexture_5hlwa")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_5hlwa")
+theme_override_styles/hover = SubResource("StyleBoxTexture_5hlwa")
+theme_override_icons/arrow = ExtResource("5_5hlwa")
 
 [node name="vsyncCheck" type="CheckButton" parent="MarginContainer/NinePatchRect/buttonsMarginContainer/buttonsVBoxContainer" unique_id=732189697]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("6_hf6o2")
+theme_override_icons/checked = ExtResource("6_k1k3g")
+theme_override_icons/unchecked = ExtResource("7_s5qi0")
 text = "V-Sync"
 
 [node name="masterLabel" type="Label" parent="MarginContainer/NinePatchRect/buttonsMarginContainer/buttonsVBoxContainer" unique_id=485053858]
@@ -95,6 +146,11 @@ text = "Master volume"
 [node name="masterSlider" type="HSlider" parent="MarginContainer/NinePatchRect/buttonsMarginContainer/buttonsVBoxContainer" unique_id=1803589669]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_icons/grabber = ExtResource("8_k1k3g")
+theme_override_icons/grabber_highlight = ExtResource("9_gh8fl")
+theme_override_styles/slider = SubResource("StyleBoxTexture_s5qi0")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_mer1h")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_mer1h")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -107,6 +163,11 @@ text = "Music volume"
 [node name="musicSlider" type="HSlider" parent="MarginContainer/NinePatchRect/buttonsMarginContainer/buttonsVBoxContainer" unique_id=1028268776]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_icons/grabber = ExtResource("8_k1k3g")
+theme_override_icons/grabber_highlight = ExtResource("9_gh8fl")
+theme_override_styles/slider = SubResource("StyleBoxTexture_s5qi0")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_mer1h")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_mer1h")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -119,6 +180,11 @@ text = "Effect volume"
 [node name="sfxSlider" type="HSlider" parent="MarginContainer/NinePatchRect/buttonsMarginContainer/buttonsVBoxContainer" unique_id=199666748]
 unique_name_in_owner = true
 layout_mode = 2
+theme_override_icons/grabber = ExtResource("8_k1k3g")
+theme_override_icons/grabber_highlight = ExtResource("9_gh8fl")
+theme_override_styles/slider = SubResource("StyleBoxTexture_s5qi0")
+theme_override_styles/grabber_area = SubResource("StyleBoxTexture_mer1h")
+theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_mer1h")
 max_value = 1.0
 step = 0.01
 value = 1.0
@@ -137,6 +203,7 @@ theme_override_constants/margin_top = -10
 theme_override_constants/margin_right = -10
 
 [node name="settingExitButton" type="Button" parent="MarginContainer/NinePatchRect/MarginContainer" unique_id=1333374611]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(30, 30)
 layout_mode = 2
 size_flags_horizontal = 8
